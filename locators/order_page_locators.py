@@ -26,9 +26,13 @@ class OrderPageLocators:
     TEXT_ABOUT_RENT = (By.XPATH, ".//div[text()='Про аренду']")
 
     ABOUT_RENT_FORM_WHEN_TO_DELIVER_THE_ORDER = (By.XPATH, ".//input[@placeholder='* Когда привезти самокат']")
+    ABOUT_RENT_FORM_WHEN_TO_DELIVER_THE_ORDER_DATA = (
+        By.XPATH, "//div[contains(@class, 'react-datepicker__day--selected') and text()='25']")
 
     ABOUT_RENT_FORM_RENTAL_PERIOD = (By.XPATH, ".//div[text()='* Срок аренды']")
     ABOUT_RENT_FORM_RENTAL_PERIOD_LIST = (By.XPATH, ".//div[text()='сутки']")
+
+    CHECKBOXES_BLACK = (By.XPATH, ".//label[@for='black']")
 
     ABOUT_RENT_FORM_COMMENT_FOR_THE_COURIER = (By.XPATH, ".//input[@placeholder='Комментарий для курьера']")
 
@@ -37,5 +41,24 @@ class OrderPageLocators:
     """
     - HEADER
     """
-
+    LOGO_SCOOTER = (By.XPATH, ".//img[@alt='Scooter']")
+    LOGO_YANDEX = (By.XPATH, ".//img[@alt='Yandex']")
     BUTTON_ORDER = (By.XPATH, "//button[text()='Статус заказа']/preceding-sibling::button[text()='Заказать']")
+
+    """
+    Модальное окно хотите оформить заказ?
+    """
+    BUTTON_YES_WANT_TO_PLACE_AN_ORDER = (By.XPATH, ".//button[text()='Да']")
+    BUTTON_NO_WANT_TO_PLACE_AN_ORDER = (By.XPATH, ".//button[text()='Нет']")
+
+    """
+    Модальное окно "Заказ оформлен"
+    """
+    FORM_ORDER_IS_PROCESSED = (By.XPATH, ".//div[text()='Заказ оформлен']")
+    BUTTON_VIEW_STATUS = (By.XPATH, ".//button[text()='Посмотреть статус']")
+
+    """
+    Локатор для сайта Яндекс Дзен
+    """
+    YANDEX_DZEN_LOCATOR = (By.XPATH, ".//div[text()='Удобный и быстрый Яндекс Браузер']")
+
