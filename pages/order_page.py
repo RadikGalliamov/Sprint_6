@@ -53,3 +53,20 @@ class OrderPageHelper(BasePage):
     @allure.step("Клик по кнопке 'Посмотреть статус'")
     def click_button_view_status(self):
         self.wait_for_clickable(OrderPageLocators.BUTTON_VIEW_STATUS).click()
+
+    @allure.step(
+        "Клик по кнопке 'Заказать' формы Заказа, Клик по кнопке Да формы хотите оформить заказ? и ожидание видимостиэлемента с сообщением 'Заказ оформлен'")
+    def is_order_confirmation_message_displayed(self):
+        self.click_order_from_form_order_page()
+        self.click_button_yes_from_form_want_to_place_an_order_order_page()
+        """
+        Метод для проверки видимости элемента с сообщением "Заказ оформлен"
+        :return: True, если элемент виден, иначе False
+        """
+        confirmation_message = self.wait_for_visibility(OrderPageLocators.FORM_ORDER_IS_PROCESSED)
+        return "Заказ оформлен" in confirmation_message.text
+
+    @allure.step("Проверка модального окна с текстом Удобный и быстрый Яндекс Браузер при переходе на страницу Яндекс")
+    def check_yandex_dzen_text(self):
+        return "Удобный и быстрый Яндекс Браузер" in self.wait_for_visibility(
+            OrderPageLocators.YANDEX_DZEN_LOCATOR).text

@@ -67,3 +67,15 @@ class BasePage:
     def get_text(self, locator, wait_time=10):
         element = self.wait_for_visibility(locator, wait_time)
         return element.text
+
+    @allure.step("Переключаемся на новую вкладку")
+    def switch_to_new_tab(self):
+        main_window_handle = self.driver.current_window_handle
+        new_tab_handle = None
+        # Переключаемся на новую вкладку
+        for window_handle in self.driver.window_handles:
+            if window_handle != main_window_handle:
+                new_tab_handle = window_handle
+                break
+        if new_tab_handle:
+            self.driver.switch_to.window(new_tab_handle)
